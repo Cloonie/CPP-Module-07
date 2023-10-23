@@ -11,7 +11,10 @@ class Array
 
 	public:
 		// Construction with no parameter: Creates an empty array.
-		Array() : _elements(NULL), _size(0) {}
+		Array() : _elements(NULL), _size(0)
+		{
+			std::cout << "Default Array constructed" << std::endl;
+		}
 
 		// Construction with an unsigned int n as a parameter:
 		// Creates an array of n elements initialized by default.
@@ -20,11 +23,13 @@ class Array
 			_elements = new T[n];
 			for (unsigned int i = 0; i < n; i++)
 				_elements[i] = T();
+			std::cout << "Array with n parameter constructed" << std::endl;
 		}
 
 		// Destructor
 		~Array()
 		{
+			std::cout << "Array destructed" << std::endl;
 			delete[] _elements;
 		}
 
@@ -37,6 +42,7 @@ class Array
 				_elements = new T[_size];
 				for (unsigned int i = 0; i < _size; i++)
 					_elements[i] = ref._elements[i];
+				std::cout << "Array copied" << std::endl;
 			}
 		}
 
@@ -52,6 +58,7 @@ class Array
 					_elements = new T[_size];
 					for (unsigned int i = 0; i < _size; i++)
 						_elements[i] = ref._elements[i];
+					std::cout << "Array assigned" << std::endl;
 				}
 				else
 				{

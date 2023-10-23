@@ -10,7 +10,6 @@ CPPFLAGS	+=	-std=c++98
 RM			=	rm -rf
 
 SRCS		=	main.cpp		\
-				Array.tpp
 
 OBJS		=	$(patsubst %.cpp, %.o, $(SRCS))
 
