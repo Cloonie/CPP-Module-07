@@ -27,7 +27,6 @@ $(NAME): $(OBJS)
 clean:
 	@echo "$(COLOUR_RED)clean: Removing object files...$(COLOUR_END)"
 	@$(RM) $(OBJS)
-	@$(RM) *_shrubbery
 
 fclean: clean
 	@echo "$(COLOUR_RED)fclean: Removing program file...$(COLOUR_END)"
