@@ -20,16 +20,20 @@ int main(int, char**)
 
 	// test copy and assign constructor
 	{
+		std::cout << "Using operator=: ";
 		Array<int> tmp = numbers;
+		std::cout << "Using obj(int n): ";
 		Array<int> test(tmp);
 	}
+
+	// numbers[123] = 123;
 
 	// handle error if both value are not the same
 	for (int i = 0; i < MAX_VAL; i++)
 	{
 		if (mirror[i] != numbers[i])
 		{
-			std::cerr << "didn't save the same value!!" << std::endl;
+			std::cerr << "didn't save the same value!!" << " (mirror[i]: " << mirror[i] << ", numbers[i]: " << numbers[i] << ")" << std::endl;
 			return 1;
 		}
 	}
@@ -37,7 +41,8 @@ int main(int, char**)
 	// testing exception cases (less than 0 || more than MAX_VAL)
 	try
 	{
-		numbers[-2] = 0;
+		std::cout << "Test Case 1: ";
+		numbers[-1] = 0;
 	}
 	catch(const std::exception& e)
 	{
@@ -45,6 +50,7 @@ int main(int, char**)
 	}
 	try
 	{
+		std::cout << "Test Case 2: ";
 		numbers[MAX_VAL] = 0;
 	}
 	catch(const std::exception& e)
@@ -56,6 +62,10 @@ int main(int, char**)
 	{
 		numbers[i] = rand();
 	}
+
+	// Array member function size()
+	std::cout << numbers.size() << std::endl;
+
 	delete [] mirror;
 	return 0;
 }
