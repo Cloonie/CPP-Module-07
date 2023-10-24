@@ -72,7 +72,7 @@ class Array
 		// Subscript Operator[]
 		T& operator[] (unsigned int index)
 		{
-			if (index >= 0 && index < _size)
+			if (index < _size)
 				return _elements[index];
 			else
 				throw std::out_of_range("Index out of range");
